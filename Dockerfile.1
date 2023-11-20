@@ -1,0 +1,7 @@
+FROM rust:latest
+WORKDIR /script
+COPY . /script/
+RUN useradd -r user_system
+RUN cargo build --release
+USER user_system
+CMD /script/target/release/tp
